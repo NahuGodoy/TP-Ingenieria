@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+img {
+  width: 75px;
+  height: auto; /* mantiene la proporción */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: #fff;
+  color: #111;
+  line-height: 1.6;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #111;
+  font-weight: bold;
+}
