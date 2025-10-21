@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "fecha": "10/07/2025",
+    "hora": "00:00:01",
+    "tipo": "AUTOMATICO",
+    "estado": "EXITO",
+    "detalles": "Todos los centros fueron actualizados."
+  },
+  {
+    "id": 2,
+    "fecha": "10/07/2025",
+    "hora": "00:01:01",
+    "tipo": "AUTOMATICO",
+    "estado": "ERROR",
+    "detalles": "No se pudo establecer conexión con el sistema de Posicionamieto."
+  },
+  {
+    "id": 3,
+    "fecha": "10/07/2025",
+    "hora": "00:00:01",
+    "tipo": "AUTOMATICO",
+    "estado": "MANUAL",
+    "detalles": "Todos los centros fueron actualizados."
+  }
+]

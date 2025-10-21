@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "fecha": "10/07/2025",
+    "lugar": "Parque ...",
+    "estado": "EXITO",
+    "detalles": "En el parque ....."
+  },
+  {
+    "id": 2,
+    "fecha": "11/07/2025",
+    "lugar": "Plaza ...",
+    "estado": "RESUELTO",
+    "detalles": "En el plaza ....."
+  },
+  {
+    "id": 3,
+    "fecha": "12/07/2025",
+    "lugar": "Museo ...",
+    "estado": "RESUELTO",
+    "detalles": "En el museo ....."
+  }
+]
