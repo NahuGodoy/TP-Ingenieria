@@ -16,16 +16,44 @@
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <img src="./recursos/logo.png" alt="Logo" />
             <ul class="nav-links">
-                <li><a href="">Sitios de Interés</a></li>
-                <li><a href="">Eventos</a></li>
+                <li><a href="#sitiosDeInteres">Sitios de Interés</a></li>
+                <li><a href="#eventos">Eventos</a></li>
                 <li><a href="#asistencia">Centros de Asistencia</a></li>
-                <li><a href="">Reportar un problema</a></li>
+                <li><a href="#reportarProblema">Reportar un problema</a></li>
             </ul>
             <div></div>
         </nav>
+
+        <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="/recursos/logo.png" alt="Logo" class="img-fluid w-25" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+                        <li class="nav-item fs-6">
+                            <a class="nav-link active" href="#sitiosDeInteres">Sitios de Interés</a>
+                        </li>
+                        <li class="nav-item fs-6">
+                            <a class="nav-link active" href="#eventos">Eventos</a>
+                        </li>
+                        <li class="nav-item fs-6">
+                            <a class="nav-link active" href="#asistencia">Centros de Asistencia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary fs-6" href="#reportarProblema" role="button">Reportar un
+                                problema</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div> -->
     </header>
     <main class="mx-3">
-        <section class="container">
+        <section id="sitiosDeInteres" class="container">
             <h3 class="my-3">Sitios de interés</h3>
 
             <div class="row g-4">
@@ -87,7 +115,7 @@
 
         </section>
 
-        <section class="container">
+        <section id="eventos" class="container">
             <h3 class="my-3">Eventos</h3>
 
             <div class="row g-4">
@@ -149,7 +177,7 @@
         </section>
 
 
-        <section class="container">
+        <section id="reportarProblema" class="container">
             <h3 class="my-4">Reportar un problema</h3>
             <form id="form-problema" novalidate>
                 <div class="mb-3">
