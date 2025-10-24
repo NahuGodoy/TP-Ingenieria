@@ -66,10 +66,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const marcadores = {};
     centros.forEach(centro => {
-        marcadores[centro.id] = L.marker(centro.coords)
+        const marcador = L.marker(centro.coords)
             .addTo(map)
             .bindPopup(`<b>${centro.nombre}</b>`);
+
+        marcadores[centro.id] = marcador;
+
+        marcador.on('click', () => {
+            const collapseEl = document.getElementById(`collapse${centro.id}`);
+            const bsCollapse = new bootstrap.Collapse(collapseEl, { toggle: true });
+
+            document.querySelectorAll('.accordion-collapse.show').forEach(openEl => {
+                if (openEl.id !== `collapse${centro.id}`) {
+                    new bootstrap.Collapse(openEl, { toggle: false });
+                }
+            });
+        });
     });
+
+
 
     document.querySelectorAll(".accordion-button").forEach(button => {
         button.addEventListener("click", (e) => {
