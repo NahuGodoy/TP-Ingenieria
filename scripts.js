@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
             nombre: "Centro 1",
             direccion: "Calle Rivadavia 3050",
             horario: "8:00 - 15:00",
+            tipo: "Fijo",
             coords: [-38.0028, -57.5491],
         },
         {
@@ -18,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
             nombre: "Centro 2",
             direccion: "Av. Colón 4560",
             horario: "9:00 - 17:00",
+            tipo: "Fijo",
             coords: [-37.9959, -57.5635],
         },
         {
@@ -25,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
             nombre: "Centro 3",
             direccion: "Av. Edison 1100",
             horario: "10:00 - 18:00",
+            tipo: "Movil",
             coords: [-38.0185, -57.5568],
         },
         {
@@ -32,8 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
             nombre: "Centro 4",
             direccion: "Av. Constitución 5700",
             horario: "9:00 - 16:00",
+            tipo: "Movil",
             coords: [-37.9872, -57.5773],
-        },
+        }
     ];
 
     const accordionContainer = document.getElementById("accordionCentros");
@@ -58,15 +62,38 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="accordion-body">
                 <p><strong>Dirección:</strong> ${centro.direccion}</p>
                 <p><strong>Horario:</strong> ${centro.horario}</p>
+                <p><strong>Tipo:</strong> ${centro.tipo}</p>
             </div>
             </div>
         </div>
         `).join("");
 
 
+    var iconoFijo = L.icon({
+        iconUrl: './recursos/fijo.png', // https://www.flaticon.es/icono-gratis/camion_5977865
+        iconSize: [50, 50], // size of the icon
+        iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    var iconoMovil = L.icon({
+        iconUrl: './recursos/movil.png', // https://www.flaticon.es/icono-gratis/punto-de-informacion_5639418
+        iconSize: [50, 50], // size of the icon
+        iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+        popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
     const marcadores = {};
     centros.forEach(centro => {
-        const marcador = L.marker(centro.coords)
+        var iconoCentro;
+
+        if (centro.tipo == "Fijo") {
+            iconoCentro = iconoFijo;
+        } else {
+            iconoCentro = iconoMovil;
+        }
+
+        const marcador = L.marker(centro.coords, { icon: iconoCentro })
             .addTo(map)
             .bindPopup(`<b>${centro.nombre}</b>`);
 
