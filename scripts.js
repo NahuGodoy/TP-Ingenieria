@@ -37,17 +37,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     var iconoFijo = L.icon({
-        iconUrl: './recursos/fijo.png', 
-        iconSize: [50, 50], 
-        iconAnchor: [22, 94], 
-        popupAnchor: [-3, -76] 
+        iconUrl: './recursos/fijo.png',
+        iconSize: [50, 50],
+        iconAnchor: [22, 94],
+        popupAnchor: [-3, -76]
     });
 
     var iconoMovil = L.icon({
-        iconUrl: './recursos/movil.png', 
-        iconSize: [50, 50], 
-        iconAnchor: [22, 94], 
-        popupAnchor: [-3, -76] 
+        iconUrl: './recursos/movil.png',
+        iconSize: [50, 50],
+        iconAnchor: [22, 94],
+        popupAnchor: [-3, -76]
     });
 
     const marcadores = {};
