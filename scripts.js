@@ -9,32 +9,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const accordionContainer = document.getElementById("accordionCentros");
 
-    accordionContainer.innerHTML = centros.map((centro, i) => `
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="heading${centro.id}">
-            <button class="accordion-button ${i !== 0 ? 'collapsed' : ''}" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#collapse${centro.id}" 
-                    aria-expanded="${i === 0}" 
-                    aria-controls="collapse${centro.id}"
-                    data-id="${centro.id}">
-                ${centro.nombre}
-            </button>
-            </h2>
-            <div id="collapse${centro.id}" 
-                class="accordion-collapse collapse ${i === 0 ? 'show' : ''}" 
-                aria-labelledby="heading${centro.id}" 
-                data-bs-parent="#accordionCentros">
-            <div class="accordion-body">
-                <p><strong>Dirección:</strong> ${centro.direccion}</p>
-                <p><strong>Horario:</strong> ${centro.horario}</p>
-                <p><strong>Tipo:</strong> ${centro.tipo}</p>
+    function renderizarAccordion(listaCentros) {
+        accordionContainer.innerHTML = listaCentros.map((centro, i) => `
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading${centro.id}">
+                <button class="accordion-button ${i !== 0 ? 'collapsed' : ''}" 
+                        type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapse${centro.id}" 
+                        aria-expanded="${i === 0}" 
+                        aria-controls="collapse${centro.id}"
+                        data-id="${centro.id}">
+                    ${centro.nombre}
+                </button>
+                </h2>
+                <div id="collapse${centro.id}" 
+                    class="accordion-collapse collapse ${i === 0 ? 'show' : ''}" 
+                    aria-labelledby="heading${centro.id}" 
+                    data-bs-parent="#accordionCentros">
+                <div class="accordion-body">
+                    <p><strong>Dirección:</strong> ${centro.direccion}</p>
+                    <p><strong>Horario:</strong> ${centro.horario}</p>
+                    <p><strong>Tipo:</strong> ${centro.tipo}</p>
+                </div>
+                </div>
             </div>
-            </div>
-        </div>
-        `).join("");
-
+            `).join("");
+            linkearClicks();
+    }
 
     var iconoFijo = L.icon({
         iconUrl: './recursos/fijo.png',
@@ -78,15 +80,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    document.querySelectorAll(".accordion-button").forEach(button => {
-        button.addEventListener("click", (e) => {
-            const idCentro = parseInt(e.target.dataset.id);
-            const centro = centros.find(c => c.id === idCentro);
+    function linkearClicks() {
+        document.querySelectorAll(".accordion-button").forEach(button => {
+            button.addEventListener("click", (e) => {
+                const idCentro = parseInt(e.target.dataset.id);
+                const centro = centros.find(c => c.id === idCentro);
 
-            if (centro) {
-                map.flyTo([centro.coords[0], centro.coords[1]], 15, { animate: true, duration: 1.2 });
-                setTimeout(() => marcadores[idCentro].openPopup(), 800);
-            }
+                if (centro) {
+                    map.flyTo([centro.coords[0], centro.coords[1]], 15, { animate: true, duration: 1.2 });
+                    setTimeout(() => marcadores[idCentro].openPopup(), 800);
+                }
+            });
         });
+    }
+
+    const busqueda = document.getElementById("floatingInput");
+
+    busqueda.addEventListener("input", () => {
+        const filtro = busqueda.value.toLowerCase();
+
+        const filtrados = centros.filter(cen =>
+            cen.nombre.toLowerCase().includes(filtro)
+        );
+
+        renderizarAccordion(filtrados);
     });
+    renderizarAccordion(centros);
 });
