@@ -95,16 +95,23 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const busqueda = document.getElementById("floatingInput");
+
+    const todos = document.getElementById("todos");
     const fijo = document.getElementById("fijo");
     const movil = document.getElementById("movil");
 
+    todos.addEventListener("change", () => {
+        if (todos.checked) { movil.checked = false; fijo.checked = false; };
+        filtrarCentros();
+    });
+
     fijo.addEventListener("change", () => {
-        if (fijo.checked) movil.checked = false;
+        if (fijo.checked) { movil.checked = false; todos.checked = false; };
         filtrarCentros();
     });
 
     movil.addEventListener("change", () => {
-        if (movil.checked) fijo.checked = false;
+        if (movil.checked) { fijo.checked = false; todos.checked = false; };
         filtrarCentros();
     });
 
