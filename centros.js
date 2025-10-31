@@ -1,7 +1,7 @@
 export const centros = [
     {
         id: 1,
-        nombre: "Centro 1",
+        nombre: "Centro San Luis",
         direccion: "Calle Rivadavia 3050",
         horario: "8:00 - 15:00",
         tipo: "Fijo",
@@ -9,7 +9,7 @@ export const centros = [
     },
     {
         id: 2,
-        nombre: "Centro 2",
+        nombre: "Centro Colon",
         direccion: "Av. Colón 4560",
         horario: "9:00 - 17:00",
         tipo: "Fijo",
@@ -17,7 +17,7 @@ export const centros = [
     },
     {
         id: 3,
-        nombre: "Centro 3",
+        nombre: "Centro Entre Ríos",
         direccion: "Av. Edison 1100",
         horario: "10:00 - 18:00",
         tipo: "Movil",
@@ -25,7 +25,7 @@ export const centros = [
     },
     {
         id: 4,
-        nombre: "Centro 4",
+        nombre: "Centro Moreno",
         direccion: "Av. Constitución 5700",
         horario: "9:00 - 16:00",
         tipo: "Movil",
