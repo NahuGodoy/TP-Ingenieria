@@ -101,17 +101,27 @@ document.addEventListener("DOMContentLoaded", function () {
     const movil = document.getElementById("movil");
 
     todos.addEventListener("change", () => {
-        if (todos.checked) { movil.checked = false; fijo.checked = false; };
+        if (todos.checked) {
+            movil.checked = false;
+            fijo.checked = false;
+        };
         filtrarCentros();
+        map.flyTo([-38.0055, -57.5826], 13, { animate: true, duration: 1.5 });
     });
 
     fijo.addEventListener("change", () => {
-        if (fijo.checked) { movil.checked = false; todos.checked = false; };
+        if (fijo.checked) {
+            movil.checked = false;
+            todos.checked = false;
+        };
         filtrarCentros();
     });
 
     movil.addEventListener("change", () => {
-        if (movil.checked) { fijo.checked = false; todos.checked = false; };
+        if (movil.checked) {
+            fijo.checked = false;
+            todos.checked = false;
+        };
         filtrarCentros();
     });
 
