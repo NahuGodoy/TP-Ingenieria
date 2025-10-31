@@ -64,8 +64,7 @@
 
                 <div class="col-12 col-md-6 col-lg-3 d-flexjustify-content-center">
                     <div class="card h-100 ">
-                        <img src="./recursos/faro.jpg" class="card-img-top img-sitios-eventos"
-                            alt="Faro Punta Mogotes">
+                        <img src="./recursos/faro.jpg" class="card-img-top img-sitios-eventos" alt="Faro Punta Mogotes">
                         <div class="card-body d-flex flex-column justify-content-between">
                             <h5 class="card-title">Faro Punta Mogotes</h5>
                             <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
@@ -168,20 +167,13 @@
                             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                             <label for="floatingInput">Nombre del centro de asistencia</label>
                         </div>
-                        <div>
-                            <div class="row">
-                                <div class="col">
-                                    <input type="radio" class="btn-check" name="options" id="option1" autocomplete="off"
-                                        checked>
-                                    <label class="btn btn-primary w-100" for="option1">Fijo</label>
-                                </div>
-                                <div class="col">
-                                    <input type="radio" class="btn-check" name="options" id="option2"
-                                        autocomplete="off">
-                                    <label class="btn btn-primary w-100" for="option2">Móvil</label>
-                                </div>
+                            <div class="btn-group" role="group">
+                                <input type="checkbox" class="btn-check" id="fijo" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="fijo">Fijo</label>
+
+                                <input type="checkbox" class="btn-check" id="movil" autocomplete="off">
+                                <label class="btn btn-outline-primary" for="movil">Móvil</label>
                             </div>
-                        </div>
                         <br>
                         <div class="accordion" id="accordionCentros"></div>
                     </div>

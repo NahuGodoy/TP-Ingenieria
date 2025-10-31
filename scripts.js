@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>
             </div>
             `).join("");
-            linkearClicks();
+        linkearClicks();
     }
 
     var iconoFijo = L.icon({
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const centro = centros.find(c => c.id === idCentro);
 
                 if (centro) {
-                    map.flyTo([centro.coords[0], centro.coords[1]], 15, { animate: true, duration: 1.2 });
+                    map.flyTo([centro.coords[0], centro.coords[1]], 18, { animate: true, duration: 1.5 });
                     setTimeout(() => marcadores[idCentro].openPopup(), 800);
                 }
             });
@@ -95,15 +95,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const busqueda = document.getElementById("floatingInput");
+    const fijo = document.getElementById("fijo");
+    const movil = document.getElementById("movil");
 
-    busqueda.addEventListener("input", () => {
+    fijo.addEventListener("change", () => {
+        if (fijo.checked) movil.checked = false;
+        filtrarCentros();
+    });
+
+    movil.addEventListener("change", () => {
+        if (movil.checked) fijo.checked = false;
+        filtrarCentros();
+    });
+
+    busqueda.addEventListener("input", filtrarCentros);
+
+    function filtrarCentros() {
+        const fijoChecked = fijo.checked;
+        const movilChecked = movil.checked;
+        let filtrados = centros;
+
+        if (fijoChecked) {
+            filtrados = filtrados.filter(c => c.tipo === "Fijo");
+        } else if (movilChecked) {
+            filtrados = filtrados.filter(c => c.tipo === "Movil");
+        }
+
         const filtro = busqueda.value.toLowerCase();
-
-        const filtrados = centros.filter(cen =>
-            cen.nombre.toLowerCase().includes(filtro)
-        );
+        filtrados = filtrados.filter(cen =>
+            cen.nombre.toLowerCase().includes(filtro));
 
         renderizarAccordion(filtrados);
-    });
+    }
+
     renderizarAccordion(centros);
 });
