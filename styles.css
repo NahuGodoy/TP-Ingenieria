@@ -52,3 +52,10 @@ body {
 section {
   scroll-margin-top: 105px; 
 }
+
+.img-sitios-eventos {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+}
